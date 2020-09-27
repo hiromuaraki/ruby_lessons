@@ -1,0 +1,18 @@
+<h1><%= @review.movie.name %>についてのレビューを登録する</h1>
+
+<% @review.errors.full_messages.each do |message| %>
+    <ul class="errors">
+        <li class="error">
+            <%= message %>
+        </li>
+    </ul>
+<% end %>
+
+<form action="/movies/<%= @review.movie_id %>/reviews" method="post">
+    <label>点数</label></br>
+    <input type="number" name="point" step="0.1" value="<%= @review.point %>"></br>
+    <label>コメント</label></br>
+    <textarea name="comment" rows="4" cols="40"><%= @review.comment %></textarea></br>
+    <p></p>
+    <input type="submit" value="評価する">
+</form>

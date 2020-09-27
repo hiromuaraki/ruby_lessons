@@ -1,0 +1,31 @@
+<h2>この映画のレビュー</h2>
+<p><%= "#{@movie.id}: #{@movie.name}" %></p>
+<p><%= "監督： #{@movie.director}" %></p>
+<p><%= "あらすじ：#{@movie.summry}" %></p>
+
+<form action="/movies/<%= @movie.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">削除する</button>
+</form>
+
+<a href="/movies/<%= @movie.id %>/edit">編集する</a>
+<a href="/movies">一覧へ</a>
+<a href="/movies/<%= @movie.id %>/reviews/new">レビューする</a>
+<p></p>
+<table border="1">
+    <thead style="background-color: yellow;">
+        <th>投稿者</th>
+        <th>点数</th>
+        <th>コメント</th>
+    </thead>
+
+<% @reviews.each do |review| %>
+    <tbody>
+        <tr>
+            <td><%= review.user_name %></td>
+            <td><%= review.point %></td>
+            <td><%= review.comment %></td>
+        </tr>
+    </tbody>
+<% end %>
+</table>

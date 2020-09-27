@@ -1,0 +1,20 @@
+<h1>映画を新規登録する</h1>
+
+<% @movie.errors.full_messages.each do |message|%>
+    <ul class="errors">
+        <li class="error"><%= message %></li>
+    </ul>
+<% end %>
+<form action="/movies" method="post">
+    <label>映画名</label>
+    <input type="text" name="name" value="<%= @movie.name %>"><br>
+    <p></p>
+    <label>監督</label>
+    <input type="text" name="director" value="<%= @movie.director %>"></br>
+    <p></p>
+    <label>あらすじ</label></br>
+    <textarea name="summry" rows="4" cols="40" value="<%= @movie.summry %>"></textarea></br>
+    <p></p>
+    <input type="submit" value="保存">
+</form>
+<a href="/movies">戻る</a>

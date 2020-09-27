@@ -1,0 +1,10 @@
+<h1>ログインページ</h1>
+<%= flash[:error] %>
+
+<form action="/sessions" method="post">
+    メールアドレス：<input type="text" name="email" value="<%= @user.email %>">
+    パスワード：<input type="password" name="password" placeholder="password">
+    <input type="submit" value="ログイン">
+</form>
+
+<a href="/users/new">こちらから</a>会員登録をしてください。

@@ -1,0 +1,30 @@
+<h1>映画一覧レビュー</h1>
+
+<a href="/movies/new">新規登録</a>
+<p></p>
+<% if logged_in? %>
+<form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">ログアウトする</button>
+</form>
+<% end %>
+<table border="1">
+    <thead style="background-color:yellow;">
+        <th>ムービー管理番号</th>
+        <th>映画名</th>
+        <th>監督名</th>
+        <th>あらすじ</th>
+        <th>編集</th>
+    </thead>   
+<% @movies.each do |movie| %>
+    <tbody> 
+        <tr>
+            <td style="text-align:center;"><%= movie.id %></td>
+            <td><%= movie.name %></td>
+            <td><%= movie.director %></td>
+            <td><%= movie.summry %></td>
+            <td><a href="/movies/<%= movie.id %>">詳細ページをみる</a></td>
+        </tr>
+    </tbody>
+<% end %>
+</table>

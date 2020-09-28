@@ -100,7 +100,7 @@ end
 #詳細ページ
 get '/movies/:id' do
     @movie = Movie.find(params[:id])
-    @reviews = @movie.reviews
+    @reviews = @movie.reviews.includes(:user)
     erb :'movies/show'
 end
 

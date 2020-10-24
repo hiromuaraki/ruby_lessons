@@ -35,6 +35,7 @@ end
 
 #users
 class User < ActiveRecord::Base
+    has_many :reviews
     validates :name,presence: true, length:{maximum: 10}
     validates :email, presence: true, length:{maximum: 255},format:{with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, uniqueness: { case_sensitive: false }
     #暗号化用の宣言（内部にてvalidatesしている）
